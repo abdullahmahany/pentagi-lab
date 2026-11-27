@@ -34,7 +34,8 @@ Not yet validated (do not treat this deployment as security-testing capable):
 
 ## Stop / resume
 
-- Stop: `gh codespace stop -c <codespace-name>` or github.com/codespaces -> Stop. Stopping ends compute usage; a stopped codespace still counts storage against the 15 GB-month quota while it exists. Delete the codespace to free storage.
+- Stop: `gh codespace stop -c <codespace-name>` or github.com/codespaces -> Stop. Stopping ends compute metering.
+- Storage is a separate metered SKU ("Codespaces storage", per GB-month). On 2026-11-27 the billing usage page showed 1.07 compute hours and 0 GB-month storage accrued for November. Delete the codespace to stop any storage metering.
 - Resume: github.com/codespaces -> Resume (or `gh codespace ssh` / web), then:
   `cd /workspaces/pentagi-lab/pentagi && docker compose up -d`
   The stack (and `.env`) persists across stops. Keep the forwarded port visibility **Private**.
